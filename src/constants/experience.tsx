@@ -4,9 +4,8 @@ import {
   type BentoGridItemProps,
 } from "@/components/BentoGrid";
 import { getImage } from "astro:assets";
-import {
-  FaBrandsGithub,
-} from "solid-icons/fa";
+import { SiIeee, SiAcm } from "solid-icons/si";
+import { AiOutlineLink } from "solid-icons/ai";
 import { FiExternalLink } from "solid-icons/fi";
 import { ImLibrary } from "solid-icons/im";
 import rspack from "../assets/rspack.svg";
@@ -38,11 +37,11 @@ export const publications: BentoGridItemProps[] = [
         rel="noopener noreferrer"
         aria-label="Github repository for Expense Tracker"
       >
-        <FaBrandsGithub class="hover:opacity-65 transition-opacity" />
+        <AiOutlineLink class="hover:opacity-65 transition-opacity" />
       </a>
     ),
     description:
-      "A desktop and iOS expense tracking application built with Tauri and SolidJS. Features include transaction management, recurring payments, financial analytics with interactive charts, automated processing via clipboard commands, and local SQLite storage with backup/restore functionality.",
+      "Explored the evolution of containerization and serverless computing, focusing on Kubernetes as a key container orchestration platform and examining its potential for improving application development efficiency and security.",
     class: "bg-neutral-50 sm:col-span-2",
     },
     {
@@ -61,11 +60,11 @@ export const publications: BentoGridItemProps[] = [
         rel="noopener noreferrer"
         aria-label="Github repository for portfolio"
       >
-        <FaBrandsGithub class="hover:opacity-65 transition-opacity" />
+        <SiAcm class="hover:opacity-65 transition-opacity" />
       </a>
     ),
     description:
-      "The current portfolio you are viewing. A minimalist design with a focus on responsive UI.  Built with Astro, Solidjs and Shadcn UI.",
+      "Explored Kubernetes as a powerful container orchestration tool, demonstrating how it enables rapid application deployment through a comprehensive CI/CD pipeline and advanced container management techniques.",
     class: "bg-neutral-50",
   },
   BentoSkeleton,
@@ -85,11 +84,11 @@ export const publications: BentoGridItemProps[] = [
         rel="noopener noreferrer"
         aria-label="Github repository for Rustscript"
       >
-        <FaBrandsGithub class="hover:opacity-65 transition-opacity" />
+        <SiIeee class="hover:opacity-65 transition-opacity" />
       </a>
     ),
     description:
-      "Developed a statically typed, compiled programming language combining Rust's syntax with the simplicity of TypeScript and Go with core features including primitive data types, higher-order functions, type checking, concurrency and garbage collector. The language to compile code into bytecode, akin to Java, followed by execution on a virtual machine.",
+      "Examined the performance implications of integrating zero-knowledge proofs (ZKPs) into Hyperledger Fabric, revealing significant performance overhead while maintaining user privacy in blockchain transactions.",
     class: "bg-neutral-50 sm:col-span-2",
   },
 ];
@@ -147,12 +146,22 @@ export const professionalExperiences: BentoGridItemProps[] = [
       <ul class="list-inside list-disc">
         <li>
           {
-            "Enhanced on-call efficiency with AI-driven Oncall Agent features, reducing incident analysis time for Wallet services."
+            "MTR Malls"
           }
         </li>
         <li>
           {
-            "Optimized core RPC services by rewriting high-QPS handlers from Golang to Rust, achieving 50% resource savings and 30% latency reduction, projected to save $500K annually."
+            "MTR · Care App"
+          }
+        </li>
+        <li>
+          {
+            "High Speed Rail App"
+          }
+        </li>
+        <li>
+          {
+            "MTR Mobile App (MTR Mobile Badge System)"
           }
         </li>
       </ul>
@@ -187,12 +196,12 @@ export const professionalExperiences: BentoGridItemProps[] = [
       <ul class="list-inside list-disc">
         <li>
           {
-            "Led a cross-functional team collaboration to migrate Money-Platform from Webpack to Rspack, reducing bundling time by 50%."
+            "Designed a scalable blockchain network using Hyperledger Fabric."
           }
         </li>
         <li>
           {
-            "Developed on whitescreen alarms and alarm handling system, streamlined the process of handling alarms. The whitescreen alarm caught and report a major bug released to production."
+            "Streamlined design-to-code workflows by implementing automated Azure DevOps CI/CD pipelines, improving deployment efficiency and system reliability."
           }
         </li>
       </ul>
@@ -221,7 +230,7 @@ export const professionalExperiences: BentoGridItemProps[] = [
       </a>
     ),
     description:
-      "Reduced backend response time by 5 times by porting a Case Management System backend from Ruby on Rails to Golang. Features ported include RBAC, Auth, 2FA and Masquerading.",
+      "Developed a Python automation solution using xlwings, Pandas and NumPy to streamline daily logistics Excel reporting, reducing manual operations by 80%.",
     class: "bg-neutral-50 sm:col-span-2",
     footer: (
       <small class="text-xs text-muted-foreground">10/2021 - 12/2021</small>
