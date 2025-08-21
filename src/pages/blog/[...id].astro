@@ -1,0 +1,76 @@
+---
+import { BlogPagination } from "@/components/BlogPagination";
+import MediumArticle from "@/components/MediumArticle.astro";
+import { Separator } from "@/components/ui/separator";
+import { getSortedBlogEntries } from "@/content/util";
+import Layout from "@/layouts/Layout.astro";
+import { type CollectionEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getSortedBlogEntries();
+  return blogEntries.map((entry, i) => ({
+    params: { id: entry.id },
+    props: {
+      entry,
+      index: i,
+    },
+  }));
+}
+
+export type BlogPostProps = {
+  entry: CollectionEntry<"blog">;
+  index: number;
+};
+
+const { entry, index } = Astro.props as BlogPostProps;
+const item = entry.data;
+const blogEntries = await getSortedBlogEntries();
+
+// Randomly select 3 other blog entries to show
+const otherEntries = blogEntries.filter((b) => b.id !== entry.id);
+otherEntries.sort(() => Math.random() - 0.5);
+otherEntries.splice(3);
+
+const pubDate = new Date(item.pubDate).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const { Content } = await render(entry);
+---
+
+<Layout title={item.title}>
+  <time
+    datetime={item.pubDate.toISOString()}
+    class="text-sm text-neutral-500 ml-auto"
+  >
+    {`Posted on ${pubDate}`}
+  </time>
+
+  <article class="prose-slate prose sm:prose-lg w-full">
+    <h1 transition:name={`blog-${entry.id}-top`}>{item.title}</h1>
+    <Content />
+  </article>
+
+  <BlogPagination
+    index={index}
+    blogEntries={blogEntries}
+    transition:name="blog-pagination"
+  />
+
+  <Separator />
+
+  <section>
+    <h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
+      More blogs from me
+    </h4>
+    <div class="mt-6 flex flex-col gap-3">
+      {
+        otherEntries.map((entry) => (
+          <MediumArticle entry={entry} isTop={false} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

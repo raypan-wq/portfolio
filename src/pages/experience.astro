@@ -1,0 +1,36 @@
+---
+import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
+import { Separator } from "@/components/ui/separator";
+import {
+  professionalExperiences,
+  publications,
+} from "@/constants/experience";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Ray Pan - Blogs">
+  <section>
+    <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+      Professional Experience
+    </h3>
+    <BentoGrid class="mt-6">
+      {professionalExperiences.map((props) => <BentoGridItem {...props} />)}
+    </BentoGrid>
+  </section>
+  <Separator />
+  <!-- <section>
+    <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+      Open Source Contributions
+    </h3>
+    <BentoGrid class="mt-6">
+      {openSourceContrib.map((props) => <BentoGridItem {...props} />)}
+    </BentoGrid>
+  </section>
+  <Separator /> -->
+  <section>
+    <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">Publications</h3>
+    <BentoGrid class="mt-6">
+      {publications.map((props) => <BentoGridItem {...props} />)}
+    </BentoGrid>
+  </section>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export type BlogPostProps = {
+  entry: CollectionEntry<"blog">;
+  isTop?: boolean;
+};
+
+const { entry, isTop = true } = Astro.props as BlogPostProps;
+
+const item = entry.data;
+const pubDate = new Date(item.pubDate).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<article class="flex flex-col">
+  <div class="flex justify-between">
+    <a href={`/blog/${entry.id}`} aria-label={item.description}>
+      <h4
+        class="scroll-m-20 text-md font-semibold tracking-tight hover:underline"
+        transition:name={`blog-${entry.id}-${isTop ? "top" : "other"}`}
+      >
+        {item.title}
+      </h4>
+    </a>
+    <time
+      datetime={item.pubDate.toISOString()}
+      class="text-sm text-neutral-500"
+    >
+      {pubDate}
+    </time>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <p class="text-sm text-muted-foreground truncate">{item.preview}</p>
+    <ul class="flex gap-1">
+      {
+        item.categories.map((category: string) => (
+          <li class="text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-s-full rounded-e-full text-nowrap shadow-xs">
+            {category}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>
