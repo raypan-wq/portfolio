@@ -5,16 +5,15 @@ import { Separator } from "@/components/ui/separator";
 import { interests } from "@/constants/interest";
 import { SkillsIcons } from "@/constants/skills";
 import Layout from "../layouts/Layout.astro";
-
-const selfIntro =
-  "Hello, I'm Ray Pan.\n I love working with TypeScript, Java, and C#. My interests include programming languages, blockchain, front-end engineering, and exploring the latest technologies.";
+import { SiTypescript } from "solid-icons/si";
 ---
 
 <Layout title="Ray Pan - Home">
   <section>
     <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">About me</h3>
     <p class="scroll-m-20 text-lg font-semibold tracking-tight">
-      {selfIntro}
+      Hello, I'm Ray Pan.<br />
+      I love working with <span style="color: #3178c6;">TypeScript</span> <SiTypescript class="inline w-6 h-6 align-text-bottom text-[#3178c6]" title="TypeScript" />, <span style="color: #b07219;">Java</span>, and <span style="color: #178600;">C#</span>. My interests include programming languages, blockchain, front-end engineering, and exploring the latest technologies.
     </p>
   </section>
   <Separator />

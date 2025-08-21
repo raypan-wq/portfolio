@@ -131,7 +131,7 @@ export const professionalExperiences: BentoGridItemProps[] = [
         alt="Accenture Logo"
       />
     ),
-    title: "Senior Software Engineer Analyst @ Accenture",
+    title: "Senior Software Engineering Analyst @ Accenture",
     icon: (
       <a
         href="https://www.accenture.com/hk-en"
@@ -181,7 +181,7 @@ export const professionalExperiences: BentoGridItemProps[] = [
         alt="Accenture Logo"
       />
     ),
-    title: "Software Engineer Intern @ Accenture, Netherlands",
+    title: "Software Engineering Intern @ Accenture, Netherlands",
     icon: (
       <a
         href="https://www.accenture.com/nl-en"
@@ -218,7 +218,7 @@ export const professionalExperiences: BentoGridItemProps[] = [
         class="m-auto opacity-70 group-hover/bento:rotate-3 transition-all rounded-md"
       />
     ),
-    title: "Software Developer Intern @ China Southern Airlines, Netherlands",
+    title: "Software Engineering Intern @ China Southern Airlines, Netherlands",
     icon: (
       <a
         href="https://www.csair.com/hk/en/index.shtml"
