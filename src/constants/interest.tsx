@@ -1,8 +1,7 @@
 import type { BentoGridItemProps } from "@/components/BentoGrid";
 import { CgGym } from "solid-icons/cg";
 import { RiMediaCameraLensLine } from "solid-icons/ri";
-import { FaSolidGolfBallTee, FaSolidPersonRunning, FaSolidPlaneDeparture, FaSolidBookOpen, TbGuitarPickFilled} from "solid-icons/fa";
-import { RiMediaMovie2Fill } from "solid-icons/ri";
+import { FaSolidPlaneDeparture, FaSolidBookOpen } from "solid-icons/fa";
 
 export const interests: BentoGridItemProps[] = [
   {
