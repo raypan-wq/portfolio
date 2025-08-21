@@ -37,7 +37,7 @@ export const BlogPagination: Component<BlogPaginationProps> = (props) => {
         href={
           isFirstPage()
             ? undefined
-            : `/blog/${props.blogEntries[props.index - 1].id}`
+            : `${base}/blog/${props.blogEntries[props.index - 1].id}`
         }
       >
         <PaginationPrevious disabled={isFirstPage()} />
@@ -47,7 +47,7 @@ export const BlogPagination: Component<BlogPaginationProps> = (props) => {
         href={
           isLastPage()
             ? undefined
-            : `/blog/${props.blogEntries[props.index + 1].id}`
+            : `${base}/blog/${props.blogEntries[props.index + 1].id}`
         }
       >
         <PaginationNext disabled={isLastPage()} />

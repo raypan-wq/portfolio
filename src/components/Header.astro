@@ -59,11 +59,9 @@ const socialLinkProps: LinkIconProps[] = [
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => {
-  // Remove base from current path for comparison
-  const normalizedPath = currentPath.replace(base.slice(0, -1), '') || '/';
-  const normalizedHref = href.replace(base.slice(0, -1), '') || '/';
-  return normalizedHref === "/" ? normalizedPath === "/" : normalizedPath.startsWith(normalizedHref);
-};
+  const normalize = (path: string) => path.replace(/\/+$/, '') || '/';
+  return normalize(href) === normalize(currentPath);
+}
 ---
 
 <header
@@ -99,3 +97,17 @@ const isActive = (href: string) => {
     {socialLinkProps.map((props) => <LinkIcon {...props} />)}
   </div>
 </header>
+
+<script>
+  // This runs in the browser
+  const currentPath = window.location.pathname;
+  console.log(`Current path: ${currentPath}`);
+  
+  // You can add more debugging logic here
+  document.querySelectorAll('nav a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      console.log(`Link href: ${href}, is active: ${href === currentPath || currentPath.startsWith(href)}`);
+    }
+  });
+</script>
