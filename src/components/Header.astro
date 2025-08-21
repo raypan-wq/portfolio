@@ -2,28 +2,29 @@
 import {
   FaBrandsGithub,
   FaBrandsLinkedin,
-  FaBrandsMedium,
 } from "solid-icons/fa";
 import { SiGmail } from "solid-icons/si";
 import type { LinkIconProps } from "./LinkIcon.astro";
 import LinkIcon from "./LinkIcon.astro";
 
+const base = import.meta.env.BASE_URL;
+
 const navItemProps = [
   {
     title: "Home",
-    href: "/",
+    href: base,
   },
   {
     title: "Experience",
-    href: "/experience",
+    href: `${base}/experience`,
   },
   {
     title: "Blog",
-    href: "/blog",
+    href: `${base}/blog`,
   },
   {
     title: "Resume",
-    href: "/rui_pan_resume.pdf",
+    href: `${base}/rui_pan_resume.pdf`,
   },
 ];
 
@@ -57,8 +58,12 @@ const socialLinkProps: LinkIconProps[] = [
 ];
 
 const currentPath = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === "/" ? href === currentPath : currentPath.startsWith(href);
+const isActive = (href: string) => {
+  // Remove base from current path for comparison
+  const normalizedPath = currentPath.replace(base.slice(0, -1), '') || '/';
+  const normalizedHref = href.replace(base.slice(0, -1), '') || '/';
+  return normalizedHref === "/" ? normalizedPath === "/" : normalizedPath.startsWith(normalizedHref);
+};
 ---
 
 <header
