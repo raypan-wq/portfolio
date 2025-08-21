@@ -17,13 +17,14 @@ export type BlogPaginationProps = {
 export const BlogPagination: Component<BlogPaginationProps> = (props) => {
   const isFirstPage = () => props.index === 0;
   const isLastPage = () => props.index === props.blogEntries.length - 1;
+  const base = import.meta.env.BASE_URL;
 
   return (
     <Pagination
       count={props.blogEntries.length}
       page={props.index + 1}
       itemComponent={(itemProps) => (
-        <a href={`/blog/${props.blogEntries[itemProps.page - 1].id}`}>
+        <a href={`${base}/blog/${props.blogEntries[itemProps.page - 1].id}`}>
           {/* Page is 1 indexed */}
           <PaginationItem page={itemProps.page}>
             {itemProps.page}
