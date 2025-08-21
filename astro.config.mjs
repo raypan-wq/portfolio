@@ -10,7 +10,7 @@ import remarkToc from "remark-toc";
 export default defineConfig({
   prefetch: true,
   output: "static",
-  site: "https://raypan-wq.github.io/portfolio",
+  site: "https://raypan-wq.github.io/",
   image: {
     domains: ["miro.medium.com"],
   },
