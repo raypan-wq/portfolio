@@ -11,7 +11,7 @@ export default defineConfig({
   prefetch: true,
   output: "static",
   site: "https://raypan.me/",
-  base: "portfolio",
+  // base: "portfolio",
   image: {
     domains: ["miro.medium.com"],
   },
