@@ -12,19 +12,19 @@ const base = import.meta.env.BASE_URL;
 const navItemProps = [
   {
     title: "Home",
-    href: base,
+    href: '/',
   },
   {
     title: "Experience",
-    href: `${base}/experience`,
+    href: `/experience`,
   },
   {
     title: "Blog",
-    href: `${base}/blog`,
+    href: `/blog`,
   },
   {
     title: "Resume",
-    href: `${base}/rui_pan_resume.pdf`,
+    href: `/rui_pan_resume.pdf`,
   },
 ];
 
@@ -59,9 +59,12 @@ const socialLinkProps: LinkIconProps[] = [
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => {
-  const normalize = (path: string) => path.replace(/\/+$/, '') || '/';
-  return normalize(href) === normalize(currentPath);
-}
+  // Remove base from current path for comparison
+  const normalizedPath = currentPath.replace(base.slice(0, -1), '') || '/';
+  const normalizedHref = href.replace(base.slice(0, -1), '') || '/';
+  return normalizedHref === "/" ? normalizedPath === "/" : normalizedPath.startsWith(normalizedHref);
+};
+
 ---
 
 <header

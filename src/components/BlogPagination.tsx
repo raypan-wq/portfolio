@@ -24,7 +24,7 @@ export const BlogPagination: Component<BlogPaginationProps> = (props) => {
       count={props.blogEntries.length}
       page={props.index + 1}
       itemComponent={(itemProps) => (
-        <a href={`${base}/blog/${props.blogEntries[itemProps.page - 1].id}`}>
+        <a href={`/blog/${props.blogEntries[itemProps.page - 1].id}`}>
           {/* Page is 1 indexed */}
           <PaginationItem page={itemProps.page}>
             {itemProps.page}
@@ -37,7 +37,7 @@ export const BlogPagination: Component<BlogPaginationProps> = (props) => {
         href={
           isFirstPage()
             ? undefined
-            : `${base}/blog/${props.blogEntries[props.index - 1].id}`
+            : `/blog/${props.blogEntries[props.index - 1].id}`
         }
       >
         <PaginationPrevious disabled={isFirstPage()} />
@@ -47,7 +47,7 @@ export const BlogPagination: Component<BlogPaginationProps> = (props) => {
         href={
           isLastPage()
             ? undefined
-            : `${base}/blog/${props.blogEntries[props.index + 1].id}`
+            : `/blog/${props.blogEntries[props.index + 1].id}`
         }
       >
         <PaginationNext disabled={isLastPage()} />
